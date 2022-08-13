@@ -1,0 +1,63 @@
+/* tailwind css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ... */
+
+:root {
+    /* colors */
+    --clr-red-primary: hsl(345, 95%, 68%);
+    --clr-blue-primary-300: hsl(237, 18%, 59%);
+    --clr-blue-neutral-600: hsl(236, 21%, 26%);
+    --clr-blue-neutral-800: hsl(235, 16%, 14%);
+    --clr-blue-neutral-900: hsl(234, 17%, 12%);
+    /* fonts */
+    --fs-body: 16px;
+    /* font family */
+    --ff-primary: 'Red Hat Text', 'sans';
+}
+
+@layer base {
+    h1 {
+        @apply text-2xl;
+    }
+}
+
+
+/* grouped custom utility classes */
+
+.container-custom {
+    /* container width */
+    --w-container: min(1110px, 100%);
+    @apply mx-auto px-4 w-[var(--w-container)];
+}
+
+.time-num-wrapper {
+    @apply bg-blue-neutral-600 w-28 h-24 px-4 py-5 rounded relative overflow-hidden text-5xl text-red-primary;
+}
+
+@screen md {
+    .time-num-wrapper {
+        @apply w-32 h-28 text-7xl
+    }
+}
+
+.time-num::before,
+.time-num::after {
+    content: '';
+    @apply absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-neutral-800
+}
+
+.time-num::after {
+    @apply left-full
+}
+
+.flip {
+    @apply absolute top-0 left-0 w-full h-1/2 bg-blue-neutral-800 opacity-60
+}
+
+.time-text {
+    @apply mt-4 text-xs uppercase tracking-widest text-blue-primary-300;
+}
